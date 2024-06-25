@@ -41,7 +41,7 @@ class ContastEnhancement(object):
         else:
             class_ = "hc"
         # Determine whether the image is dark or bright
-        if mean >= 0.60: # 0.6
+        if mean >= 0.50:
             sub_class_ = class_ + 'b'
         else:
             sub_class_ = class_ + 'd'
