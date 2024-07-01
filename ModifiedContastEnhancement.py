@@ -56,10 +56,11 @@ class ContastEnhancement(object):
         y_ = y
         K = y_ + (1-y_) * (mean**y)
         c = 1/(1+heaviside(0.5-mean)*(K-1))
-
+        
+        # Re-Calculate gamma based on sub classes of image's contrast and brightness
         # Bright images in low contrast
         if sub_class_ == 'lcb' and mean >= 0.5:
-            gamma = y_
+            gamma = y_**(1-mean)
         elif sub_class_ == "lcd" and mean < 0.5:
             gamma = y_ / (y_ + (1-y_) * (mean**y))
         else:
